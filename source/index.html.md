@@ -119,8 +119,8 @@ Remember — you need to have your request authenticated. If you don't you will 
 ```json
   {
     "identifier": "00:14:22:01:23:45",
-    "longitude":"151.20919",
-    "latitude":"-33.88668",
+    "longitude":151.20919,
+    "latitude":-33.88668,
   }
 ```
 
@@ -129,16 +129,16 @@ Remember — you need to have your request authenticated. If you don't you will 
 ```json
   [{
     "identifier": "00:14:22:01:23:45",
-    "longitude":"151.20919",
-    "latitude":"-33.88668",
+    "longitude":151.20919,
+    "latitude":-33.88668,
   },{
     "identifier": "00:13:00:AE:44:12",
-    "longitude":"151.20980",
-    "latitude":"-33.8899",
+    "longitude":151.20980,
+    "latitude":-33.8899,
   },{
     "identifier": "00:14:BC:00:22:11",
-    "longitude":"151.20965",
-    "latitude":"-33.88211",
+    "longitude":151.20965,
+    "latitude":-33.88211,
   }]
 ```
 

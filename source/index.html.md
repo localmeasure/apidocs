@@ -90,8 +90,8 @@ Parameter | Type | Required | Description
 identifier | string | true | A unique identifier, example Mac Address or other device id
 first_name | string | true | First name of the user
 last_name | string | true | Last name of the user
-avatar_image | url | false | An image representing the user
-birthdate | date | false | The birthdate of the user in the format YYYY-MM-DD
+avatar_image | string | false | An image representing the user
+birthdate | string | false | The birthdate of the user in the format YYYY-MM-DD
 gender | string | false | The gender of the user (male,female)
 bio | string | false | A breif description of the user
 verified | boolean | false | If the user has been verified by the source identity provider
@@ -103,8 +103,8 @@ following_count | number | false | The current amount of users that they are fol
 email | string | false | The email of the user
 website | string | false | The website of the user
 custom_fields | array | false | An array of custom fields with key and value.
-custom_fields - key | string | false | The key for the custom field example "hotel_code"
-custom_fields - value | string | false | The value for the field example "abc123"
+custom_fields.key | string | false | The key for the custom field example "hotel_code"
+custom_fields.value | string | false | The value for the field example "abc123"
 
 <aside class="success">
 Remember — you need to have your request authenticated. If you don't you will recieve a 403 request error.

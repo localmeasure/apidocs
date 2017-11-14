@@ -2,14 +2,9 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='https://dashboard.getlocalmeasure.com/account/?tab=plugins'>Sign Up for a Key</a>
 
 includes:
   - errors
@@ -19,221 +14,162 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to the Localmeasure API! You can use our API to access Localmeasure API endpoints.
 
 # Authentication
 
-> To authorize, use this code:
+> Make sure to replace `abc123` with your API key.
 
-```ruby
-require 'kittn'
+Localmeasure uses API keys to allow access to the API. You can register a new Localmeasure API key at our [plugin portal](http://dashboard.getlocalmeasure.com/account/?tab=plugins).
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+The Localmeasure API is available from the url below:
 
-```python
-import kittn
+`https://api.getlocalmeasure.com/v1/`
 
-api = kittn.authorize('meowmeowmeow')
-```
+Localmeasure expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+`Authorization: abc123`
 
-```javascript
-const kittn = require('kittn');
+or as a parameter on a request that looks like the following:
 
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`https://api.getlocalmeasure.com/v1/request?access_token=abc123`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>abc123</code> with your personal API key.
 </aside>
 
-# Kittens
+# Identify
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Example payload:
 
 ```json
-[
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "identifier": "00:14:22:01:23:45",
+    "first_name": "John",
+    "last_name": "Smith",
+    "avatar_image":"https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png",
+    "birthdate":"1970-05-02",
+    "gender":"male",
+    "bio":"An all round great guy, enjoys long walks on the beach.",
+    "verified":"true",
+    "hometown":"New York, New York",
+    "location":"Sydney, Australia",
+    "link":"https://instagram.com/johnsmith/",
+    "followers_count":"500",
+    "following_count":"200",
+    "email": "john.smith@gmail.com",
+    "website": "https://google.com",
+    "custom_fields"[{
+        "key":"favourite food",
+        "value":"Pizza"
+    },{
+        "key":"loyalty status",
+        "value":"Platinum"
+    }]
   }
-]
 ```
 
-This endpoint retrieves all kittens.
+> On success of this request it will return a 200 and JSON structured like this:
+
+```json
+  {
+    "status": "ok",
+  }
+```
+
+Identify lets you tie a user to their actions and record traits about them. It includes a unique identifier and any optional traits you know about them like their email, name, etc.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST /v1/identify`
 
-### Query Parameters
+### Body Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Parameter | Type | Required | Description
+--------- | ------- | ------- | -----------
+identifier | string | true | A unique identifier, example Mac Address or other device id
+first_name | string | true | First name of the user
+last_name | string | true | Last name of the user
+avatar_image | url | false | An image representing the user
+birthdate | date | false | The birthdate of the user in the format YYYY-MM-DD
+gender | string | false | The gender of the user (male,female)
+bio | string | false | A breif description of the user
+verified | boolean | false | If the user has been verified by the source identity provider
+hometown | string | false | The hometown of the user
+location | string | false | The location the user resides
+link | string | false | A link to the users profile from the source identity provider
+followers_count | string | false | The current amount of followers
+following_count | string | false | The current amount of users that they are following
+email | string | false | The email of the user
+website | string | false | The website of the user
+custom_fields | array | false | An array of custom fields with key and value.
+custom_fields - key | string | false | The key for the custom field example "hotel_code"
+custom_fields - value | string | false | The value for the field example "abc123"
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — you need to have your request authenticated. If you don't you will recieve a 403 request error.
 </aside>
 
-## Get a Specific Kitten
 
-```ruby
-require 'kittn'
+# Geolocation
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> Example payload:
 
 ```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
+  {
+    "identifier": "00:14:22:01:23:45",
+    "longitude":"151.20919",
+    "latitude":"-33.88668",
+  }
 ```
 
-This endpoint retrieves a specific kitten.
+> Or Bulk Example payload:
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+```json
+  [{
+    "identifier": "00:14:22:01:23:45",
+    "longitude":"151.20919",
+    "latitude":"-33.88668",
+  },{
+    "identifier": "00:13:00:AE:44:12",
+    "longitude":"151.20980",
+    "latitude":"-33.8899",
+  },{
+    "identifier": "00:14:BC:00:22:11",
+    "longitude":"151.20965",
+    "latitude":"-33.88211",
+  }]
+```
+
+> On success of this request it will return a 200 and JSON structured like this:
+
+```json
+  {
+    "status": "ok",
+  }
+```
+
+Geolocation records latitude and longitude position of a identity
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST /v1/geolocation`
 
-### URL Parameters
+### Geolocation Frequency
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+We recommend sending location events regularly, every minute if possible.
 
-## Delete a Specific Kitten
+If we don't recieve any location events for a user for over a 30 minute period we will mark the user as exited the location
 
-```ruby
-require 'kittn'
+### Body Parameters
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+Parameter | Type | Required | Description 
+--------- | ------- | ------- | -----------
+identifier | string | true | A unique identifier, example Mac Address or other device id
+longitude | float | true | Longitude of the identified user
+latitude | float | true | Latitude of the identified user
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+<aside class="notice">
+Remember - To use this endpoint you will need to be authenticated and use an identifier that has been added.
+</aside>

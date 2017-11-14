@@ -51,12 +51,12 @@ You must replace <code>abc123</code> with your personal API key.
     "birthdate":"1970-05-02",
     "gender":"male",
     "bio":"An all round great guy, enjoys long walks on the beach.",
-    "verified":"true",
+    "verified":true,
     "hometown":"New York, New York",
     "location":"Sydney, Australia",
     "link":"https://instagram.com/johnsmith/",
-    "followers_count":"500",
-    "following_count":"200",
+    "followers_count":500,
+    "following_count":200,
     "email": "john.smith@gmail.com",
     "website": "https://google.com",
     "custom_fields"[{
@@ -98,8 +98,8 @@ verified | boolean | false | If the user has been verified by the source identit
 hometown | string | false | The hometown of the user
 location | string | false | The location the user resides
 link | string | false | A link to the users profile from the source identity provider
-followers_count | string | false | The current amount of followers
-following_count | string | false | The current amount of users that they are following
+followers_count | number | false | The current amount of followers
+following_count | number | false | The current amount of users that they are following
 email | string | false | The email of the user
 website | string | false | The website of the user
 custom_fields | array | false | An array of custom fields with key and value.

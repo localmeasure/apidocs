@@ -60,10 +60,10 @@ You must replace <code>abc123</code> with your personal API key.
     "email": "john.smith@gmail.com",
     "website": "https://google.com",
     "custom_fields"[{
-        "key":"favourite food",
+        "key":"favourite_food",
         "value":"Pizza"
     },{
-        "key":"loyalty status",
+        "key":"loyalty_status",
         "value":"Platinum"
     }]
   }

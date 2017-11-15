@@ -44,6 +44,7 @@ You must replace <code>abc123</code> with your personal API key.
 
 ```json
   {
+
     "identifier": "00:14:22:01:23:45",
     "first_name": "John",
     "last_name": "Smith",
@@ -57,6 +58,7 @@ You must replace <code>abc123</code> with your personal API key.
     "link":"https://instagram.com/johnsmith/",
     "followers_count":500,
     "following_count":200,
+    "consent": true,
     "email": "john.smith@gmail.com",
     "website": "https://google.com",
     "custom_fields"[{
@@ -102,6 +104,7 @@ followers_count | number | false | The current amount of followers
 following_count | number | false | The current amount of users that they are following
 email | string | false | The email of the user
 website | string | false | The website of the user
+marketing_consent | string | false | Whether the user gives consent to recieve marketing material
 custom_fields | array | false | An array of custom fields with key and value.
 custom_fields.key | string | false | The key for the custom field example "hotel_code"
 custom_fields.value | string | false | The value for the field example "abc123"

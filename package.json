@@ -1,0 +1,19 @@
+{
+  "name": "apidocs",
+  "version": "1.0.0",
+  "description": "Documentation of Localmeasure API",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "./deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/localmeasure/slate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/localmeasure/slate/issues"
+  },
+  "homepage": "https://github.com/localmeasure/slate#readme"
+}

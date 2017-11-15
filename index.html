@@ -209,7 +209,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/logo.svg" class="logo" alt="Logo" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -286,6 +286,7 @@ You must replace <code>abc123</code> with your personal API key.
 <p>Example payload:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+
     </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
@@ -299,6 +300,7 @@ You must replace <code>abc123</code> with your personal API key.
     </span><span class="s2">"link"</span><span class="p">:</span><span class="s2">"https://instagram.com/johnsmith/"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"followers_count"</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="w">
     </span><span class="s2">"following_count"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"consent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@gmail.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"custom_fields"</span><span class="p">[{</span><span class="w">
@@ -418,6 +420,12 @@ You must replace <code>abc123</code> with your personal API key.
 <td>string</td>
 <td>false</td>
 <td>The website of the user</td>
+</tr>
+<tr>
+<td>marketing_consent</td>
+<td>string</td>
+<td>false</td>
+<td>Whether the user gives consent to recieve marketing material</td>
 </tr>
 <tr>
 <td>custom_fields</td>

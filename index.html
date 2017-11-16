@@ -286,8 +286,9 @@ You must replace <code>abc123</code> with your personal API key.
 <p>Example payload:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-
     </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71485571121"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avatar_image"</span><span class="p">:</span><span class="s2">"https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png"</span><span class="p">,</span><span class="w">
@@ -336,6 +337,18 @@ You must replace <code>abc123</code> with your personal API key.
 <td>string</td>
 <td>true</td>
 <td>A unique identifier, example Mac Address or other device id</td>
+</tr>
+<tr>
+<td>source</td>
+<td>string</td>
+<td>true</td>
+<td>The network where this data is coming from (facebook, instagram, twitter, email, external)</td>
+</tr>
+<tr>
+<td>souce_id</td>
+<td>string</td>
+<td>true</td>
+<td>The original networks id. example facebook id (71485571121)</td>
 </tr>
 <tr>
 <td>first_name</td>

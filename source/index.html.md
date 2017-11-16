@@ -44,8 +44,9 @@ You must replace <code>abc123</code> with your personal API key.
 
 ```json
   {
-
     "identifier": "00:14:22:01:23:45",
+    "source": "facebook",
+    "source_id": "71485571121",
     "first_name": "John",
     "last_name": "Smith",
     "avatar_image":"https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png",
@@ -90,6 +91,8 @@ Identify lets you tie a user to their actions and record traits about them. It i
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
 identifier | string | true | A unique identifier, example Mac Address or other device id
+source | string | true | The network where this data is coming from (facebook, instagram, twitter, email, external)
+souce_id | string | true | The original networks id. example facebook id (71485571121)
 first_name | string | true | First name of the user
 last_name | string | true | Last name of the user
 avatar_image | string | false | An image representing the user

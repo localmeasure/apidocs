@@ -92,13 +92,13 @@ Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
 identifier | string | true | A unique identifier, example Mac Address or other device id
 source | string | true | The network where this data is coming from (facebook, instagram, twitter, email, external)
-souce_id | string | true | The original networks id. example facebook id (71485571121)
+source_id | string | true | The original networks id. example facebook id (71485571121)
 first_name | string | true | First name of the user
 last_name | string | true | Last name of the user
 avatar_image | string | false | An image representing the user
 birthdate | string | false | The birthdate of the user in the format YYYY-MM-DD
-gender | string | false | The gender of the user (male,female)
-bio | string | false | A breif description of the user
+gender | string | false | The gender of the user (male, female)
+bio | string | false | A brief description of the user
 verified | boolean | false | If the user has been verified by the source identity provider
 hometown | string | false | The hometown of the user
 location | string | false | The location the user resides
@@ -107,13 +107,13 @@ followers_count | number | false | The current amount of followers
 following_count | number | false | The current amount of users that they are following
 email | string | false | The email of the user
 website | string | false | The website of the user
-marketing_consent | string | false | Whether the user gives consent to recieve marketing material
+marketing_consent | string | false | Whether the user gives consent to receive marketing material
 custom_fields | array | false | An array of custom fields with key and value.
 custom_fields.key | string | false | The key for the custom field example "hotel_code"
 custom_fields.value | string | false | The value for the field example "abc123"
 
 <aside class="success">
-Remember — you need to have your request authenticated. If you don't you will recieve a 403 request error.
+Remember — you need to have your request authenticated. If you don't you will receive a 403 request error.
 </aside>
 
 
@@ -166,7 +166,7 @@ Geolocation records latitude and longitude position of a identity
 
 We recommend sending location events regularly, every minute if possible.
 
-If we don't recieve any location events for a user for over a 30 minute period we will mark the user as exited the location
+If we don't receive any location events for a user for over a 30 minute period we will mark the user as exited the location
 
 ### Body Parameters
 

@@ -286,7 +286,7 @@ You must replace <code>abc123</code> with your personal API key.
 <p>Example payload:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71485571121"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
@@ -333,7 +333,7 @@ You must replace <code>abc123</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>identifier</td>
+<td>id</td>
 <td>string</td>
 <td>true</td>
 <td>A unique identifier, example Mac Address or other device id</td>
@@ -468,7 +468,7 @@ Remember — you need to have your request authenticated. If you don't you will 
 <p>Example payload:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="mf">151.20919</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="mf">-33.88668</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -477,15 +477,15 @@ Remember — you need to have your request authenticated. If you don't you will 
 <p>Or Bulk Example payload:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[{</span><span class="w">
-    </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="mf">151.20919</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="mf">-33.88668</span><span class="p">,</span><span class="w">
   </span><span class="p">},{</span><span class="w">
-    </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:13:00:AE:44:12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:13:00:AE:44:12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="mf">151.20980</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="mf">-33.8899</span><span class="p">,</span><span class="w">
   </span><span class="p">},{</span><span class="w">
-    </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:BC:00:22:11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:BC:00:22:11"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="mf">151.20965</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="mf">-33.88211</span><span class="p">,</span><span class="w">
   </span><span class="p">}]</span><span class="w">
@@ -514,7 +514,7 @@ Remember — you need to have your request authenticated. If you don't you will 
 </tr>
 </thead><tbody>
 <tr>
-<td>identifier</td>
+<td>id</td>
 <td>string</td>
 <td>true</td>
 <td>A unique identifier, example Mac Address or other device id</td>
@@ -534,7 +534,7 @@ Remember — you need to have your request authenticated. If you don't you will 
 </tbody></table>
 
 <aside class="notice">
-Remember - To use this endpoint you will need to be authenticated and use an identifier that has been added.
+Remember - To use this endpoint you will need to be authenticated and using an identity that has been already added.
 </aside>
 <h1 id='errors'>Errors</h1>
 <p>The Localmeasure API uses the following error codes:</p>

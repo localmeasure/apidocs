@@ -177,5 +177,5 @@ longitude | float | true | Longitude of the identified user
 latitude | float | true | Latitude of the identified user
 
 <aside class="notice">
-Remember - To use this endpoint you will need to be authenticated and use an identifier that has been added.
+Remember - To use this endpoint you will need to be authenticated and using an identity that has been already added.
 </aside>

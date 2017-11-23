@@ -44,7 +44,7 @@ You must replace <code>abc123</code> with your personal API key.
 
 ```json
   {
-    "identifier": "00:14:22:01:23:45",
+    "id": "00:14:22:01:23:45",
     "source": "facebook",
     "source_id": "71485571121",
     "first_name": "John",
@@ -90,7 +90,7 @@ Identify lets you tie a user to their actions and record traits about them. It i
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
-identifier | string | true | A unique identifier, example Mac Address or other device id
+id | string | true | A unique identifier, example Mac Address or other device id
 source | string | true | The network where this data is coming from (facebook, instagram, twitter, email, external)
 source_id | string | true | The original networks id. example facebook id (71485571121)
 first_name | string | true | First name of the user
@@ -124,7 +124,7 @@ Remember — you need to have your request authenticated. If you don't you will 
 
 ```json
   {
-    "identifier": "00:14:22:01:23:45",
+    "id": "00:14:22:01:23:45",
     "longitude":151.20919,
     "latitude":-33.88668,
   }
@@ -134,15 +134,15 @@ Remember — you need to have your request authenticated. If you don't you will 
 
 ```json
   [{
-    "identifier": "00:14:22:01:23:45",
+    "id": "00:14:22:01:23:45",
     "longitude":151.20919,
     "latitude":-33.88668,
   },{
-    "identifier": "00:13:00:AE:44:12",
+    "id": "00:13:00:AE:44:12",
     "longitude":151.20980,
     "latitude":-33.8899,
   },{
-    "identifier": "00:14:BC:00:22:11",
+    "id": "00:14:BC:00:22:11",
     "longitude":151.20965,
     "latitude":-33.88211,
   }]
@@ -172,7 +172,7 @@ If we don't receive any location events for a user for over a 30 minute period w
 
 Parameter | Type | Required | Description 
 --------- | ------- | ------- | -----------
-identifier | string | true | A unique identifier, example Mac Address or other device id
+id | string | true | A unique identifier, example Mac Address or other device id
 longitude | float | true | Longitude of the identified user
 latitude | float | true | Latitude of the identified user
 

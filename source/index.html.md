@@ -44,11 +44,11 @@ You must replace <code>abc123</code> with your personal API key.
 
 ```json
   {
-    "id": "00:14:22:01:23:45",
-    "source": "facebook",
-    "source_id": "71485571121",
+    "vendor_id": "00:14:22:01:23:45",
     "first_name": "John",
     "last_name": "Smith",
+    "network": "facebook",
+    "network_id": "71485571121",
     "avatar_image":"https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png",
     "birthdate":"1970-05-02",
     "gender":"male",
@@ -90,11 +90,11 @@ Identify lets you tie a user to their actions and record traits about them. It i
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
-id | string | true | A unique identifier, example Mac Address or other device id
-source | string | true | The network where this data is coming from (facebook, instagram, twitter, email, external)
-source_id | string | true | The original networks id. example facebook id (71485571121)
+vendor_id | string | true | A unique identifier, example Mac Address or other device id
 first_name | string | true | First name of the user
 last_name | string | true | Last name of the user
+network | string | false | The network where this data is coming from (facebook, instagram, twitter)
+network_id | string | false | The original networks id. example facebook id (71485571121)
 avatar_image | string | false | An image representing the user
 birthdate | string | false | The birthdate of the user in the format YYYY-MM-DD
 gender | string | false | The gender of the user (male, female)
@@ -172,7 +172,7 @@ If we don't receive any location events for a user for over a 30 minute period w
 
 Parameter | Type | Required | Description 
 --------- | ------- | ------- | -----------
-id | string | true | A unique identifier, example Mac Address or other device id
+vendor_id | string | true | A unique identifier, example Mac Address or other device id
 longitude | float | true | Longitude of the identified user
 latitude | float | true | Latitude of the identified user
 

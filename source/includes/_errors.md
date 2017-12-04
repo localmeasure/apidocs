@@ -4,8 +4,8 @@ The Localmeasure API uses the following error codes:
 
 Error Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks.
-401 | Unauthorized -- Your API key is wrong.
+400 | Bad Request -- Your request has fields which have invalid data in them.
+401 | Unauthorized -- Your API key is not correct.
 404 | Not Found -- The specified API could not be found.
 405 | Method Not Allowed -- You tried to access a API endpoint with an invalid method.
 429 | Too Many Requests -- You're requesting our API too many times! Slow down!

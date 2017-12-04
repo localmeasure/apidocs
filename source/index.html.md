@@ -59,7 +59,7 @@ You must replace <code>abc123</code> with your personal API key.
     "link":"https://instagram.com/johnsmith/",
     "followers_count":500,
     "following_count":200,
-    "consent": true,
+    "marketing_consent": true,
     "email": "john.smith@gmail.com",
     "website": "https://google.com",
     "custom_fields"[{
@@ -127,6 +127,7 @@ Remember — you need to have your request authenticated. If you don't you will 
     "id": "00:14:22:01:23:45",
     "longitude":151.20919,
     "latitude":-33.88668,
+    "seen_at":"2017-11-29T08:09:57Z",
   }
 ```
 
@@ -137,14 +138,17 @@ Remember — you need to have your request authenticated. If you don't you will 
     "id": "00:14:22:01:23:45",
     "longitude":151.20919,
     "latitude":-33.88668,
+    "seen_at":"2017-11-29T08:09:57Z",
   },{
     "id": "00:13:00:AE:44:12",
     "longitude":151.20980,
     "latitude":-33.8899,
+    "seen_at":"2017-11-29T08:09:57Z",
   },{
     "id": "00:14:BC:00:22:11",
     "longitude":151.20965,
     "latitude":-33.88211,
+    "seen_at":"2017-11-29T08:09:57Z",
   }]
 ```
 
@@ -175,7 +179,7 @@ Parameter | Type | Required | Description
 vendor_id | string | true | A unique identifier, example Mac Address or other device id
 longitude | float | true | Longitude of the identified user
 latitude | float | true | Latitude of the identified user
-
+seen_at | string | true | A datetime when the id was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )
 <aside class="notice">
 Remember - To use this endpoint you will need to be authenticated and using an identity that has been already added.
 </aside>

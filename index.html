@@ -301,7 +301,7 @@ You must replace <code>abc123</code> with your personal API key.
     </span><span class="s2">"link"</span><span class="p">:</span><span class="s2">"https://instagram.com/johnsmith/"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"followers_count"</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="w">
     </span><span class="s2">"following_count"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"consent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketing_consent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@gmail.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"custom_fields"</span><span class="p">[{</span><span class="w">
@@ -471,6 +471,7 @@ Remember — you need to have your request authenticated. If you don't you will 
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="mf">151.20919</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="mf">-33.88668</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seen_at"</span><span class="p">:</span><span class="s2">"2017-11-29T08:09:57Z"</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -480,14 +481,17 @@ Remember — you need to have your request authenticated. If you don't you will 
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="mf">151.20919</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="mf">-33.88668</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seen_at"</span><span class="p">:</span><span class="s2">"2017-11-29T08:09:57Z"</span><span class="p">,</span><span class="w">
   </span><span class="p">},{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:13:00:AE:44:12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="mf">151.20980</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="mf">-33.8899</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seen_at"</span><span class="p">:</span><span class="s2">"2017-11-29T08:09:57Z"</span><span class="p">,</span><span class="w">
   </span><span class="p">},{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:BC:00:22:11"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="mf">151.20965</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="mf">-33.88211</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seen_at"</span><span class="p">:</span><span class="s2">"2017-11-29T08:09:57Z"</span><span class="p">,</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -531,6 +535,12 @@ Remember — you need to have your request authenticated. If you don't you will 
 <td>true</td>
 <td>Latitude of the identified user</td>
 </tr>
+<tr>
+<td>seen_at</td>
+<td>string</td>
+<td>true</td>
+<td>A datetime when the id was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -547,11 +557,11 @@ Remember - To use this endpoint you will need to be authenticated and using an i
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td>Bad Request -- Your request has fields which have invalid data in them.</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Unauthorized -- Your API key is not correct.</td>
 </tr>
 <tr>
 <td>404</td>

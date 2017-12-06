@@ -24,7 +24,7 @@ Localmeasure uses API keys to allow access to the API. You can register a new Lo
 
 The Localmeasure API is available from the url below:
 
-`https://api.getlocalmeasure.com/v1/`
+`https://public-api.getlocalmeasure.com/v1/`
 
 Localmeasure expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
@@ -32,7 +32,7 @@ Localmeasure expects for the API key to be included in all API requests to the s
 
 or as a parameter on a request that looks like the following:
 
-`https://api.getlocalmeasure.com/v1/request?access_token=abc123`
+`https://public-api.getlocalmeasure.com/v1/request?access_token=abc123`
 
 <aside class="notice">
 You must replace <code>abc123</code> with your personal API key.

@@ -18,6 +18,10 @@ Create rich profiles of your customers by sending customer data from your extern
 
 There is currently three endpoints in the Local Measure API spec.
 
+- Identify
+- Signed In
+- Geo-Location
+
 ## Use Cases
 
 ### Wi-Fi splash pages & captive portals
@@ -67,8 +71,9 @@ You can register a new Local Measure API key in our [plugin portal](http://dashb
 Identify a customer to Local Measure by calling this endpoint. A customer profile will be created or updated based on the fields provided.
 
 Customer profiles are updated when a matching profile is found based on the following precedence criteria:
-- `unique_id`
-- `email`
+
+- unique_id
+- email
 
 ### HTTP Request
 
@@ -79,10 +84,10 @@ Customer profiles are updated when a matching profile is found based on the foll
 ```json
   {
     "unique_id": "00:14:22:01:23:45",
-    "email": "john.smith@gmail.com",
-    "marketing_consent": true,
     "first_name": "John",
     "last_name": "Smith",
+    "email": "john.smith@gmail.com",
+    "marketing_consent": true,
     "birthdate":"1970-05-02",
     "gender":"male",
     "avatar_image":"https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png",
@@ -135,21 +140,20 @@ Customer profiles are updated when a matching profile is found based on the foll
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
 unique_id | string | true | A unique identifier of customer. If you dont have one you can use their device mac or email address instead.
-email | string | false | The email of the customer
-mac | string | false | The device mac address of the customer
-marketing_consent | string | false | Whether the customer gives consent to receive marketing material
 first_name | string | true | First name of the customer
 last_name | string | true | Last name of the customer
+email | string | false | The email of the customer
+marketing_consent | string | false | Whether the customer gives consent to receive marketing material
 birthdate | string | false | The birthdate of the customer in the format YYYY-MM-DD
 gender | string | false | The gender of the customer
 avatar_image | string | false | An image representing the customer
 social | array | false | An array of social identity data to link the profile with
-social.source | string | false | The social network where this data is coming from. Valid sources are: facebook, instagram, twitter, weibo
+social.source | string | false | The social network where this profile comes from. Valid sources are: facebook, instagram, twitter, weibo
 social.source_id | string | false | The original social network id i.e. Facebook id (71485571121)
 social.link | string | false | A link to the customers social profile
 social.handle | string | false | The handle of the profile if applicable
-social.bio | string | false | A brief description of the customer
-social.verified | boolean | false | If the customer has been verified by the source identity provider
+social.bio | string | false | A brief description of the customer if applicable
+social.verified | boolean | false | If the customer has been verified by the source identity provider if applicable
 social.hometown | string | false | The hometown of the customer
 social.location | string | false | The location the customer resides
 social.followers_count | number | false | The current amount of followers
@@ -157,14 +161,18 @@ social.following_count | number | false | The current amount of users that they 
 social.website | string | false | The website of the user
 social.avatar_image | string | false | An image representing the user
 custom | array | false | An array of custom fields with key and value.
-custom.key | string | false | The key for the custom field example "hotel_code"
-custom.value | string | false | The value for the field example "abc123"
+custom.key | string | false | The key for the custom field example "Loyalty Level"
+custom.value | string | false | The value for the field example "Platinum"
 
 <aside class="success">
 Remember — you need to have your request authenticated. If you don't you will receive a 403 request error.
 </aside>
 
 # Signed In
+
+Provide sign-in events from Wi-Fi splash pages, captive portals or websites to document the customer journey in Local Measure.
+
+### HTTP Request
 
 > Example payload:
 
@@ -187,10 +195,6 @@ Remember — you need to have your request authenticated. If you don't you will 
   }
 ```
 
-Provide sign-in events from Wi-Fi splash pages, captive portals or websites to document the customer journey in Local Measure.
-
-### HTTP Request
-
 `POST /v1/signedin`
 
 ### Body Parameters
@@ -209,6 +213,10 @@ Remember - To use this endpoint you will need to be authenticated and provide an
 </aside>
 
 # Geo-Location
+
+The geo-location endpoint uses the device wi-fi position to automatically create and end visits in a customer profile.
+
+### HTTP Request
 
 > Example payload:
 
@@ -249,10 +257,6 @@ Remember - To use this endpoint you will need to be authenticated and provide an
     "status": "ok",
   }
 ```
-
-The geo-location endpoint uses the device wi-fi position to automatically create and end visits in a customer profile.
-
-### HTTP Request
 
 `POST /v1/geolocation`
 

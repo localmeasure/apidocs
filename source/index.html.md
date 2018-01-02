@@ -69,7 +69,7 @@ Customer profiles are updated when a matching profile is found based on the foll
 
 - unique_id
 - email
-- social.source_id
+- profiles.source_id
 
 ### HTTP Request
 
@@ -83,7 +83,7 @@ Customer profiles are updated when a matching profile is found based on the foll
     "first_name": "John",
     "last_name": "Smith",
     "email": "john.smith@gmail.com",
-    "social": [{
+    "profiles": [{
         "source": "facebook",
         "source_id": "87235872",
         "link": "https://facebook.com/john.smith.478653",
@@ -95,6 +95,10 @@ Customer profiles are updated when a matching profile is found based on the foll
         "source": "twitter",
         "source_id": "72735729779824",
         "link": "https://twitter.com/johnnysmiddy/",
+    },{
+        "source": "salesforce",
+        "source_id": "37461828371",
+        "link": "https://salesforce.com/customer/abc123"
     }],
     "traits": {
         "loyalty_level": "Elite Plus",
@@ -121,10 +125,10 @@ unique_id | string | true | A unique identifier of the customer. If you dont hav
 first_name | string | true | First name of the customer
 last_name | string | true | Last name of the customer
 email | string | false | The email of the customer
-social | array | false | An array of social identity data to link the profile with
-social.source | string | false | The social network where this profile comes from.
-social.source_id | string | false | The original social network id i.e. Facebook id (71485571121)
-social.link | string | false | A link to the customers social profile
+profiles | array | false | An array of other social/crm profiles to link with
+profiles.source | string | false | The name of the social/crm platform where this profile comes from.
+profiles.source_id | string | false | The customers ids on the social/crm platform id i.e. Facebook id (71485571121)
+profiles.link | string | false | A link to the customers social profile
 traits | object | false | An object of traits.
 
 

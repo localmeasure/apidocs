@@ -314,7 +314,7 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 <ul>
 <li>unique_id</li>
 <li>email</li>
-<li>social.source_id</li>
+<li>profiles.source_id</li>
 </ul>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /v1/identify</code></p>
@@ -327,7 +327,7 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"social"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87235872"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://facebook.com/john.smith.478653"</span><span class="p">,</span><span class="w">
@@ -339,6 +339,10 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
         </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72735729779824"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/johnnysmiddy/"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+        </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37461828371"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://salesforce.com/customer/abc123"</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"traits"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"loyalty_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elite Plus"</span><span class="p">,</span><span class="w">
@@ -388,25 +392,25 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 <td>The email of the customer</td>
 </tr>
 <tr>
-<td>social</td>
+<td>profiles</td>
 <td>array</td>
 <td>false</td>
-<td>An array of social identity data to link the profile with</td>
+<td>An array of other social/crm profiles to link with</td>
 </tr>
 <tr>
-<td>social.source</td>
+<td>profiles.source</td>
 <td>string</td>
 <td>false</td>
-<td>The social network where this profile comes from.</td>
+<td>The name of the social/crm platform where this profile comes from.</td>
 </tr>
 <tr>
-<td>social.source_id</td>
+<td>profiles.source_id</td>
 <td>string</td>
 <td>false</td>
-<td>The original social network id i.e. Facebook id (71485571121)</td>
+<td>The customers ids on the social/crm platform id i.e. Facebook id (71485571121)</td>
 </tr>
 <tr>
-<td>social.link</td>
+<td>profiles.link</td>
 <td>string</td>
 <td>false</td>
 <td>A link to the customers social profile</td>

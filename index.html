@@ -287,7 +287,7 @@
 <h3 id='loyalty-amp-custom-profile-data'>Loyalty &amp; custom profile data</h3>
 <p>When identifying a customer in the Local Measure API you are able to send custom fields which give a profile more context and power more sophisticated automations and alerting rules. Creating custom fields such as loyalty level and loyalty ID enable your teams to deliver the right level of service to your guests.</p>
 <h3 id='link-your-crm-to-local-measure-customer-profiles'>Link your CRM to Local Measure Customer Profiles</h3>
-<p>We enable you to create a link between customer/guest records in your own CRM or PMS with the Local Measure. Using a unique customer identifier or custom fields you can search and link records between systems.</p>
+<p>We enable you to create a link between customer/guest records in your own CRM or PMS with the Local Measure. Using a customer customer identifier or custom fields you can search and link records between systems.</p>
 
 <aside class="notice">
 Use of the API is for customers using the Customer Profiles Add-On. Speak to your Account Manager for more information.
@@ -312,7 +312,7 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 <p>Customer profiles are updated when a matching profile is found based on the following precedence criteria:</p>
 
 <ul>
-<li>unique_id</li>
+<li>customer_id</li>
 <li>email</li>
 <li>profiles.source_id</li>
 </ul>
@@ -323,7 +323,7 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 <p>Example payload:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"unique_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@gmail.com"</span><span class="p">,</span><span class="w">
@@ -368,10 +368,10 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 </tr>
 </thead><tbody>
 <tr>
-<td>unique_id</td>
+<td>customer_id</td>
 <td>string</td>
 <td>true</td>
-<td>A unique identifier of the customer. If you dont have one you can use their device mac or email address instead.</td>
+<td>An identifier for the customer. If you dont have one you can use their device mac or email address instead.</td>
 </tr>
 <tr>
 <td>first_name</td>
@@ -495,7 +495,7 @@ Only use reserved traits for their intended purpose.
 <p>Example payload:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"unique_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">151.20919</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-33.88668</span><span class="p">,</span><span class="w">
     </span><span class="s2">"seen_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-29T08:09:57Z"</span><span class="p">,</span><span class="w">
@@ -505,17 +505,17 @@ Only use reserved traits for their intended purpose.
 <p>Or Bulk Example payload:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[{</span><span class="w">
-    </span><span class="s2">"unique_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">151.20919</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-33.88668</span><span class="p">,</span><span class="w">
     </span><span class="s2">"seen_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-29T08:09:57Z"</span><span class="p">,</span><span class="w">
   </span><span class="p">},{</span><span class="w">
-    </span><span class="s2">"unique_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:13:00:AE:44:12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:13:00:AE:44:12"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">151.20980</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-33.8899</span><span class="p">,</span><span class="w">
     </span><span class="s2">"seen_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-29T08:09:57Z"</span><span class="p">,</span><span class="w">
   </span><span class="p">},{</span><span class="w">
-    </span><span class="s2">"unique_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:BC:00:22:11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:BC:00:22:11"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">151.20965</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-33.88211</span><span class="p">,</span><span class="w">
     </span><span class="s2">"seen_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-29T08:09:57Z"</span><span class="p">,</span><span class="w">
@@ -544,10 +544,10 @@ If we don&#39;t receive any location events for a device for a 30 minute period 
 </tr>
 </thead><tbody>
 <tr>
-<td>unique_id</td>
+<td>customer_id</td>
 <td>string</td>
 <td>true</td>
-<td>A unique identifier of customer. If you dont have one you can use the persons device mac or email address instead.</td>
+<td>A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.</td>
 </tr>
 <tr>
 <td>longitude</td>

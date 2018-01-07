@@ -37,7 +37,7 @@ When identifying a customer in the Local Measure API you are able to send custom
 
 ### Link your CRM to Local Measure Customer Profiles
 
-We enable you to create a link between customer/guest records in your own CRM or PMS with the Local Measure. Using a unique customer identifier or custom fields you can search and link records between systems.
+We enable you to create a link between customer/guest records in your own CRM or PMS with the Local Measure. Using a customer customer identifier or custom fields you can search and link records between systems.
 
 <aside class="notice">
 Use of the API is for customers using the Customer Profiles Add-On. Speak to your Account Manager for more information.
@@ -67,7 +67,7 @@ Identify a customer to Local Measure by calling this endpoint. A customer profil
 
 Customer profiles are updated when a matching profile is found based on the following precedence criteria:
 
-- unique_id
+- customer_id
 - email
 - profiles.source_id
 
@@ -79,7 +79,7 @@ Customer profiles are updated when a matching profile is found based on the foll
 
 ```json
   {
-    "unique_id": "00:14:22:01:23:45",
+    "customer_id": "00:14:22:01:23:45",
     "first_name": "John",
     "last_name": "Smith",
     "email": "john.smith@gmail.com",
@@ -121,7 +121,7 @@ Customer profiles are updated when a matching profile is found based on the foll
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
-unique_id | string | true | A unique identifier of the customer. If you dont have one you can use their device mac or email address instead.
+customer_id | string | true | An identifier for the customer. If you dont have one you can use their device mac or email address instead.
 first_name | string | true | First name of the customer
 last_name | string | true | Last name of the customer
 email | string | false | The email of the customer
@@ -163,7 +163,7 @@ The geo-location endpoint uses the device wi-fi position to automatically create
 
 ```json
   {
-    "unique_id": "00:14:22:01:23:45",
+    "customer_id": "00:14:22:01:23:45",
     "longitude": 151.20919,
     "latitude": -33.88668,
     "seen_at": "2017-11-29T08:09:57Z",
@@ -174,17 +174,17 @@ The geo-location endpoint uses the device wi-fi position to automatically create
 
 ```json
   [{
-    "unique_id": "00:14:22:01:23:45",
+    "customer_id": "00:14:22:01:23:45",
     "longitude": 151.20919,
     "latitude": -33.88668,
     "seen_at": "2017-11-29T08:09:57Z",
   },{
-    "unique_id": "00:13:00:AE:44:12",
+    "customer_id": "00:13:00:AE:44:12",
     "longitude": 151.20980,
     "latitude": -33.8899,
     "seen_at": "2017-11-29T08:09:57Z",
   },{
-    "unique_id": "00:14:BC:00:22:11",
+    "customer_id": "00:14:BC:00:22:11",
     "longitude": 151.20965,
     "latitude": -33.88211,
     "seen_at": "2017-11-29T08:09:57Z",
@@ -212,7 +212,7 @@ If we don't receive any location events for a device for a 30 minute period we w
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
-unique_id | string | true | A unique identifier of customer. If you dont have one you can use the persons device mac or email address instead.
+customer_id | string | true | A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.
 longitude | float | true | Longitude of the identified device
 latitude | float | true | Latitude of the identified device
 seen_at | string | true | A datetime when the device was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )

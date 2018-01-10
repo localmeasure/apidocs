@@ -80,9 +80,6 @@ Customer profiles are updated when a matching profile is found based on the foll
 ```json
   {
     "customer_id": "00:14:22:01:23:45",
-    "first_name": "John",
-    "last_name": "Smith",
-    "email": "john.smith@gmail.com",
     "profiles": [{
         "source": "facebook",
         "source_id": "87235872",
@@ -101,6 +98,9 @@ Customer profiles are updated when a matching profile is found based on the foll
         "link": "https://salesforce.com/customer/abc123"
     }],
     "traits": {
+        "first_name": "John",
+        "last_name": "Smith",
+        "email": "john.smith@gmail.com",
         "loyalty_level": "Elite Plus",
         "loyalty_number":"AU8759342",
         "birthdate":"1974-08-01",
@@ -122,9 +122,6 @@ Customer profiles are updated when a matching profile is found based on the foll
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
 customer_id | string | true | An identifier for the customer. If you dont have one you can use their device mac or email address instead.
-first_name | string | true | First name of the customer
-last_name | string | true | Last name of the customer
-email | string | false | The email of the customer
 profiles | array | false | An array of other social/crm profiles to link with
 profiles.source | string | true | The name of the social/crm platform where this profile comes from.
 profiles.source_id | string | true | The customers ids on the social/crm platform id i.e. Facebook id (71485571121)
@@ -140,6 +137,9 @@ We've reserved some traits that have meanings for users and they are handled in 
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
+first_name | string | true | First name of the customer
+last_name | string | true | Last name of the customer
+email | string | false | The email of the customer
 marketing_consent | string | false | Whether the customer gives consent to receive marketing material
 birthdate | string | false | The birthdate of the customer in the format YYYY-MM-DD
 gender | string | false | The gender of the customer

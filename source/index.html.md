@@ -128,7 +128,7 @@ email | string | false | The email of the customer
 profiles | array | false | An array of other social/crm profiles to link with
 profiles.source | string | true | The name of the social/crm platform where this profile comes from.
 profiles.source_id | string | true | The customers ids on the social/crm platform id i.e. Facebook id (71485571121)
-profiles.link | string | true | A link to the customers social profile
+profiles.link | string | false | A link to the customers social profile
 traits | object | false | An object of traits.
 
 

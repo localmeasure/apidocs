@@ -324,9 +324,6 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:14:22:01:23:45"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@gmail.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87235872"</span><span class="p">,</span><span class="w">
@@ -345,6 +342,9 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
         </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://salesforce.com/customer/abc123"</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"traits"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@gmail.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"loyalty_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elite Plus"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"loyalty_number"</span><span class="p">:</span><span class="s2">"AU8759342"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"birthdate"</span><span class="p">:</span><span class="s2">"1974-08-01"</span><span class="p">,</span><span class="w">
@@ -374,24 +374,6 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 <td>An identifier for the customer. If you dont have one you can use their device mac or email address instead.</td>
 </tr>
 <tr>
-<td>first_name</td>
-<td>string</td>
-<td>true</td>
-<td>First name of the customer</td>
-</tr>
-<tr>
-<td>last_name</td>
-<td>string</td>
-<td>true</td>
-<td>Last name of the customer</td>
-</tr>
-<tr>
-<td>email</td>
-<td>string</td>
-<td>false</td>
-<td>The email of the customer</td>
-</tr>
-<tr>
 <td>profiles</td>
 <td>array</td>
 <td>false</td>
@@ -400,13 +382,13 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 <tr>
 <td>profiles.source</td>
 <td>string</td>
-<td>false</td>
+<td>true</td>
 <td>The name of the social/crm platform where this profile comes from.</td>
 </tr>
 <tr>
 <td>profiles.source_id</td>
 <td>string</td>
-<td>false</td>
+<td>true</td>
 <td>The customers ids on the social/crm platform id i.e. Facebook id (71485571121)</td>
 </tr>
 <tr>
@@ -435,6 +417,24 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>true</td>
+<td>First name of the customer</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>true</td>
+<td>Last name of the customer</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>false</td>
+<td>The email of the customer</td>
+</tr>
 <tr>
 <td>marketing_consent</td>
 <td>string</td>

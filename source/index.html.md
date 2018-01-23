@@ -102,9 +102,10 @@ Customer profiles are updated when a matching profile is found based on the foll
         "last_name": "Smith",
         "email": "john.smith@gmail.com",
         "loyalty_level": "Elite Plus",
-        "loyalty_number":"AU8759342",
-        "birthdate":"1974-08-01",
-        "gender":"male"
+        "loyalty_number": "AU8759342",
+        "birthdate": "1974-08-01",
+        "gender": "male",
+        "marketing_consent": true
     }
   }
 ```
@@ -140,7 +141,7 @@ Parameter | Type | Required | Description
 first_name | string | true | First name of the customer
 last_name | string | true | Last name of the customer
 email | string | false | The email of the customer
-marketing_consent | string | false | Whether the customer gives consent to receive marketing material
+marketing_consent | boolean | false | Whether the customer gives consent to receive marketing material
 birthdate | string | false | The birthdate of the customer in the format YYYY-MM-DD
 gender | string | false | The gender of the customer
 avatar_image | string | false | An image representing the customer

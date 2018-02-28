@@ -134,7 +134,7 @@ traits | object | false | An object of traits.
 Traits are pieces of information you know about a user that are included in an identify call. These could be demographics like age or gender, or loyalty information.
 
 ### Reserved Traits
-We've reserved some traits that have meanings for users and they are handled in special ways. 
+We've reserved some traits that have meanings for users and they are handled in special ways.
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
@@ -216,6 +216,79 @@ Parameter | Type | Required | Description
 customer_id | string | true | A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.
 longitude | float | true | Longitude of the identified device
 latitude | float | true | Latitude of the identified device
+seen_at | string | true | A datetime when the device was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )
+
+<aside class="notice">
+Remember - To use this endpoint you will need to be authenticated and provide an existing customer identity using the identify endpoint first.
+</aside>
+
+# Geo-Venue
+
+The geo-venue endpoint uses the device venue or zone to automatically create and end visits in a customer profile.
+
+### HTTP Request
+
+> Example payload:
+
+```json
+  {
+    "customer_id": "00:14:22:01:23:45",
+    "venue_id": "FJHKL334",
+    "name": "Level 1",
+    "address": "3 Drewberry Lane",
+    "seen_at": "2017-11-29T08:09:57Z",
+  }
+```
+
+> Or Bulk Example payload:
+
+```json
+  [{
+    "customer_id": "00:14:22:01:23:45",
+    "venue_id": "FJHKL334",
+    "name": "Level 1",
+    "address": "3 Drewberry Lane",
+    "seen_at": "2017-11-29T08:09:57Z",
+  },{
+    "customer_id": "00:13:00:AE:44:12",
+    "venue_id": "FJHKL336",
+    "name": "Level 3",
+    "address": "3 Drewberry Lane",
+    "seen_at": "2017-11-29T08:09:57Z",
+  },{
+    "customer_id": "00:14:BC:00:22:11",
+    "venue_id": "FJHKL338",
+    "name": "Level 5",
+    "address": "3 Drewberry Lane",
+    "seen_at": "2017-11-29T08:09:57Z",
+  }]
+```
+
+> On success of this request it will return a 200 and JSON structured like this:
+
+```json
+  {
+    "status": "ok",
+  }
+```
+
+`POST /v1/geovenue`
+
+### Frequency
+
+We recommend sending venue events regularly, every minute if possible.
+
+When the customer geo-venue is seen for the first time or after a previous exit we create a visit.
+If we don't receive any venue events for a device for a 30 minute period we will mark the customer visit as exited.
+
+### Body Parameters
+
+Parameter | Type | Required | Description
+--------- | ------- | ------- | -----------
+customer_id | string | true | A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.
+venue_id | string | true | A venue identifier.
+name | string | true | The name of the venue or zone.
+address | string | false | The address of the venue or zone.
 seen_at | string | true | A datetime when the device was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )
 
 <aside class="notice">

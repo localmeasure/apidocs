@@ -247,16 +247,19 @@ The geo-venue endpoint uses the device venue or zone to automatically create and
     "customer_id": "00:14:22:01:23:45",
     "venue_id": "FJHKL334",
     "name": "Level 1",
+    "address": "3 Drewberry Lane",
     "seen_at": "2017-11-29T08:09:57Z",
   },{
     "customer_id": "00:13:00:AE:44:12",
     "venue_id": "FJHKL336",
     "name": "Level 3",
+    "address": "3 Drewberry Lane",
     "seen_at": "2017-11-29T08:09:57Z",
   },{
     "customer_id": "00:14:BC:00:22:11",
     "venue_id": "FJHKL338",
     "name": "Level 5",
+    "address": "3 Drewberry Lane",
     "seen_at": "2017-11-29T08:09:57Z",
   }]
 ```

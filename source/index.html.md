@@ -114,7 +114,7 @@ Customer profiles are updated when a matching profile is found based on the foll
 
 ```json
   {
-    "link": "https://app.getlocalmeasure.com/customers/1787201767960751/profile",
+    "link": "https://app.getlocalmeasure.com/customers/1787201767960751/profile"
   }
 ```
 
@@ -145,7 +145,7 @@ marketing_consent | boolean | false | Whether the customer gives consent to rece
 birthdate | string | false | The birthdate of the customer in the format YYYY-MM-DD
 gender | string | false | The gender of the customer
 avatar_image | string | false | An image representing the customer
-bio | string | false | A breif description of the customer
+bio | string | false | A brief description of the customer
 hometown | string | false | The home town of the customer
 link | string | false | A link to the original customer
 website | string | false | The customers website
@@ -167,7 +167,7 @@ The geo-location endpoint uses the device wi-fi position to automatically create
     "customer_id": "00:14:22:01:23:45",
     "longitude": 151.20919,
     "latitude": -33.88668,
-    "seen_at": "2017-11-29T08:09:57Z",
+    "seen_at": "2017-11-29T08:09:57Z"
   }
 ```
 
@@ -178,17 +178,17 @@ The geo-location endpoint uses the device wi-fi position to automatically create
     "customer_id": "00:14:22:01:23:45",
     "longitude": 151.20919,
     "latitude": -33.88668,
-    "seen_at": "2017-11-29T08:09:57Z",
+    "seen_at": "2017-11-29T08:09:57Z"
   },{
     "customer_id": "00:13:00:AE:44:12",
     "longitude": 151.20980,
     "latitude": -33.8899,
-    "seen_at": "2017-11-29T08:09:57Z",
+    "seen_at": "2017-11-29T08:09:57Z"
   },{
     "customer_id": "00:14:BC:00:22:11",
     "longitude": 151.20965,
     "latitude": -33.88211,
-    "seen_at": "2017-11-29T08:09:57Z",
+    "seen_at": "2017-11-29T08:09:57Z"
   }]
 ```
 
@@ -197,6 +197,7 @@ The geo-location endpoint uses the device wi-fi position to automatically create
 ```json
   {
     "status": "ok",
+    "code":200
   }
 ```
 
@@ -236,7 +237,7 @@ The geo-venue endpoint uses the device venue or zone to automatically create and
     "venue_id": "FJHKL334",
     "name": "Level 1",
     "address": "3 Drewberry Lane",
-    "seen_at": "2017-11-29T08:09:57Z",
+    "seen_at": "2017-11-29T08:09:57Z"
   }
 ```
 
@@ -248,19 +249,19 @@ The geo-venue endpoint uses the device venue or zone to automatically create and
     "venue_id": "FJHKL334",
     "name": "Level 1",
     "address": "3 Drewberry Lane",
-    "seen_at": "2017-11-29T08:09:57Z",
+    "seen_at": "2017-11-29T08:09:57Z"
   },{
     "customer_id": "00:13:00:AE:44:12",
     "venue_id": "FJHKL336",
     "name": "Level 3",
     "address": "3 Drewberry Lane",
-    "seen_at": "2017-11-29T08:09:57Z",
+    "seen_at": "2017-11-29T08:09:57Z"
   },{
     "customer_id": "00:14:BC:00:22:11",
     "venue_id": "FJHKL338",
     "name": "Level 5",
     "address": "3 Drewberry Lane",
-    "seen_at": "2017-11-29T08:09:57Z",
+    "seen_at": "2017-11-29T08:09:57Z"
   }]
 ```
 
@@ -269,6 +270,7 @@ The geo-venue endpoint uses the device venue or zone to automatically create and
 ```json
   {
     "status": "ok",
+    "code":200
   }
 ```
 

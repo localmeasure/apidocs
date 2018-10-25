@@ -16,7 +16,6 @@ search: true
 
 Create rich profiles of your customers by sending customer data from your external data sources. This API is used to identify customers and create activities within those customers profiles in Local Measure.
 
-
 ## Use Cases
 
 ### Wi-Fi splash pages & captive portals
@@ -61,7 +60,11 @@ Include the `access_token` parameter in your HTTP uri with your API key as the v
 
 You can register a new Local Measure API key in our [plugin portal](http://dashboard.getlocalmeasure.com/account/?tab=plugins).
 
-# Identify
+# v1 – Stable
+
+The following endpoints are included in the `v1` scheme of our API and are considered **stable**.
+
+## Identify
 
 Identify a customer to Local Measure by calling this endpoint. A customer profile will be created or updated based on the fields provided.
 
@@ -122,12 +125,12 @@ Customer profiles are updated when a matching profile is found based on the foll
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
-customer_id | string | true | An identifier for the customer. If you dont have one you can use their device mac or email address instead.
-profiles | array | false | An array of other social/crm profiles to link with
-profiles.source | string | true | The name of the social/crm platform where this profile comes from.
-profiles.source_id | string | true | The customers ids on the social/crm platform id i.e. Facebook id (71485571121)
-profiles.link | string | false | A link to the customers social profile
-traits | object | false | An object of traits.
+`customer_id` | string | true | An identifier for the customer. If you dont have one you can use their device mac or email address instead.
+`profiles` | array | false | An array of other social/crm profiles to link with
+`profiles.source` | string | true | The name of the social/crm platform where this profile comes from.
+`profiles.source_id` | string | true | The customers ids on the social/crm platform id i.e. Facebook id (71485571121)
+`profiles.link` | string | false | A link to the customers social profile
+`traits` | object | false | An object of traits.
 
 
 ### Traits
@@ -138,27 +141,29 @@ We've reserved some traits that have meanings for users and they are handled in 
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
-first_name | string | true | First name of the customer
-last_name | string | true | Last name of the customer
-email | string | false | The email of the customer
-marketing_consent | boolean | false | Whether the customer gives consent to receive marketing material
-birthdate | string | false | The birthdate of the customer in the format YYYY-MM-DD
-gender | string | false | The gender of the customer
-avatar_image | string | false | An image representing the customer
-bio | string | false | A brief description of the customer
-hometown | string | false | The home town of the customer
-link | string | false | A link to the original customer
-website | string | false | The customers website
+`first_name` | string | true | First name of the customer
+`last_name` | string | true | Last name of the customer
+`email` | string | false | The email of the customer
+`marketing_consent` | boolean | false | Whether the customer gives consent to receive marketing material
+`birthdate` | string | false | The birthdate of the customer in the format YYYY-MM-DD
+`gender` | string | false | The gender of the customer
+`avatar_image` | string | false | An image representing the customer
+`bio` | string | false | A brief description of the customer
+`hometown` | string | false | The home town of the customer
+`link` | string | false | A link to the original customer
+`website` | string | false | The customers website
 
 <aside class="notice">
 Only use reserved traits for their intended purpose.
 </aside>
 
-# Geo-Location
+## Geo-Location
 
 The geo-location endpoint uses the device wi-fi position to automatically create and end visits in a customer profile.
 
 ### HTTP Request
+
+`POST /v1/geolocation`
 
 > Example payload:
 
@@ -201,8 +206,6 @@ The geo-location endpoint uses the device wi-fi position to automatically create
   }
 ```
 
-`POST /v1/geolocation`
-
 ### Frequency
 
 We recommend sending location events regularly, every minute if possible.
@@ -214,20 +217,22 @@ If we don't receive any location events for a device for a 30 minute period we w
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
-customer_id | string | true | A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.
-longitude | float | true | Longitude of the identified device
-latitude | float | true | Latitude of the identified device
-seen_at | string | true | A datetime when the device was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )
+`customer_id` | string | true | A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.
+`longitude` | float | true | Longitude of the identified device
+`latitude` | float | true | Latitude of the identified device
+`seen_at` | string | true | A datetime when the device was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )
 
 <aside class="notice">
 Remember - To use this endpoint you will need to be authenticated and provide an existing customer identity using the identify endpoint first.
 </aside>
 
-# Geo-Venue
+## Geo-Venue
 
 The geo-venue endpoint uses the device venue or zone to automatically create and end visits in a customer profile.
 
 ### HTTP Request
+
+`POST /v1/geovenue`
 
 > Example payload:
 
@@ -274,8 +279,6 @@ The geo-venue endpoint uses the device venue or zone to automatically create and
   }
 ```
 
-`POST /v1/geovenue`
-
 ### Frequency
 
 We recommend sending venue events regularly, every minute if possible.
@@ -287,12 +290,66 @@ If we don't receive any venue events for a device for a 30 minute period we will
 
 Parameter | Type | Required | Description
 --------- | ------- | ------- | -----------
-customer_id | string | true | A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.
-venue_id | string | true | A venue identifier.
-name | string | true | The name of the venue or zone.
-address | string | false | The address of the venue or zone.
-seen_at | string | true | A datetime when the device was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )
+`customer_id` | string | true | A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.
+`venue_id` | string | true | A venue identifier.
+`name` | string | true | The name of the venue or zone.
+`address` | string | false | The address of the venue or zone.
+`seen_at` | string | true | A datetime when the device was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )
 
 <aside class="notice">
 Remember - To use this endpoint you will need to be authenticated and provide an existing customer identity using the identify endpoint first.
 </aside>
+
+# v2 – Beta
+
+The following endpoints are included in the `v2` scheme of our API and are considered **unstable**; their parameters and response _may_ change without warning.
+
+## Identities
+
+The `identities` endpoint will return a summary of Customer Profiles submitted through the `/v1/identify` endpoint or created through our [Pulse](https://www.localmeasurepulse.com) product.
+
+### HTTP Request
+
+`GET /v2/identities`
+
+This endpoint supports both JSON and Comma-Separated Values (CSV) as output formats, defaulting to JSON. You can specify the format in two ways:
+
+1. Appending the format to the endpoint e.g., `GET /v2/identities.csv`
+2. Using the `Accept` header, set to either `application/json` or `text/csv`
+
+```shell
+curl -X GET \
+  'https://public-api.getlocalmeasure.com/v2/identities?type=wifi' \
+  -H 'Authorization: YOUR_API_KEY'
+```
+
+> Example Response
+
+```json
+[
+  {
+    "email": "joe@example.com",
+    "first_name": "Joe",
+    "last_name": "Smith",
+    "age_range": "21+",
+    "device_category": "Mobile",
+    "device_family": "iPhone",
+    "location_visited": "Joe's Coffee Shop",
+    "first_visited_at": "2018-10-03T03:51:47Z",
+    "last_visited_at": "2018-10-03T03:51:47Z",
+    "number_of_devices": 2,
+    "number_of_connections": 1,
+    "wifi_use_duration": 1800,
+    "marketing_consent": true,
+    "marketing_consented_at": "2018-10-03"
+  }
+]
+```
+
+### Parameters
+
+Parameter | Description
+----------|------------
+`from` | (Inclusive) date e.g., `2018-10-02` to restrict identities to those seen on or after this date. Defaults to the first of the current month.
+`to` | (Exclusive) date e.g., `2018-10-04` to restrict identities to those seen before this date. Defaults to today.
+`type` | Limits identities to those that have the required `type`. Can be `wifi`, `pulse`, `note` or `all`. Can be specified multiple times. `all` will cause `from`, `to`, and all other `type`s to be ignored. Defaults to `wifi` & `pulse`.

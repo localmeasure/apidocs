@@ -60,9 +60,9 @@ Include the `access_token` parameter in your HTTP uri with your API key as the v
 
 You can register a new Local Measure API key in our [plugin portal](http://dashboard.getlocalmeasure.com/account/?tab=plugins).
 
-# v1 – Stable
+# v1
 
-The following endpoints are included in the `v1` scheme of our API and are considered **stable**.
+The following endpoints are included in the `v1` scheme of our API.
 
 ## Identify
 
@@ -300,9 +300,9 @@ Parameter | Type | Required | Description
 Remember - To use this endpoint you will need to be authenticated and provide an existing customer identity using the identify endpoint first.
 </aside>
 
-# v2 – Beta
+# v2
 
-The following endpoints are included in the `v2` scheme of our API and are considered **unstable**; their parameters and response _may_ change without warning.
+The following endpoints are included in the `v2` scheme.
 
 ## Identities
 

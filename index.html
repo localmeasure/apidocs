@@ -235,47 +235,24 @@
               </ul>
           </li>
           <li>
-            <a href="#identify" class="toc-h1 toc-link" data-title="Identify">Identify</a>
+            <a href="#v1" class="toc-h1 toc-link" data-title="v1">v1</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    <a href="#identify" class="toc-h2 toc-link" data-title="Identify">Identify</a>
                   </li>
                   <li>
-                    <a href="#body-parameters" class="toc-h2 toc-link" data-title="Body Parameters">Body Parameters</a>
+                    <a href="#geo-location" class="toc-h2 toc-link" data-title="Geo-Location">Geo-Location</a>
                   </li>
                   <li>
-                    <a href="#traits" class="toc-h2 toc-link" data-title="Traits">Traits</a>
-                  </li>
-                  <li>
-                    <a href="#reserved-traits" class="toc-h2 toc-link" data-title="Reserved Traits">Reserved Traits</a>
+                    <a href="#geo-venue" class="toc-h2 toc-link" data-title="Geo-Venue">Geo-Venue</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#geo-location" class="toc-h1 toc-link" data-title="Geo-Location">Geo-Location</a>
+            <a href="#v2" class="toc-h1 toc-link" data-title="v2">v2</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#frequency" class="toc-h2 toc-link" data-title="Frequency">Frequency</a>
-                  </li>
-                  <li>
-                    <a href="#body-parameters-2" class="toc-h2 toc-link" data-title="Body Parameters">Body Parameters</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#geo-venue" class="toc-h1 toc-link" data-title="Geo-Venue">Geo-Venue</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#frequency-2" class="toc-h2 toc-link" data-title="Frequency">Frequency</a>
-                  </li>
-                  <li>
-                    <a href="#body-parameters-3" class="toc-h2 toc-link" data-title="Body Parameters">Body Parameters</a>
+                    <a href="#identities" class="toc-h2 toc-link" data-title="Identities">Identities</a>
                   </li>
               </ul>
           </li>
@@ -320,7 +297,9 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 <p><code>https://public-api.getlocalmeasure.com/v1/endpoint?access_token=your-api-key</code></p>
 
 <p>You can register a new Local Measure API key in our <a href="http://dashboard.getlocalmeasure.com/account/?tab=plugins">plugin portal</a>.</p>
-<h1 id='identify'>Identify</h1>
+<h1 id='v1'>v1</h1>
+<p>The following endpoints are included in the <code>v1</code> scheme of our API.</p>
+<h2 id='identify'>Identify</h2>
 <p>Identify a customer to Local Measure by calling this endpoint. A customer profile will be created or updated based on the fields provided.</p>
 
 <p>Customer profiles are updated when a matching profile is found based on the following precedence criteria:</p>
@@ -383,37 +362,37 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 </tr>
 </thead><tbody>
 <tr>
-<td>customer_id</td>
+<td><code>customer_id</code></td>
 <td>string</td>
 <td>true</td>
 <td>An identifier for the customer. If you dont have one you can use their device mac or email address instead.</td>
 </tr>
 <tr>
-<td>profiles</td>
+<td><code>profiles</code></td>
 <td>array</td>
 <td>false</td>
 <td>An array of other social/crm profiles to link with</td>
 </tr>
 <tr>
-<td>profiles.source</td>
+<td><code>profiles.source</code></td>
 <td>string</td>
 <td>true</td>
 <td>The name of the social/crm platform where this profile comes from.</td>
 </tr>
 <tr>
-<td>profiles.source_id</td>
+<td><code>profiles.source_id</code></td>
 <td>string</td>
 <td>true</td>
 <td>The customers ids on the social/crm platform id i.e. Facebook id (71485571121)</td>
 </tr>
 <tr>
-<td>profiles.link</td>
+<td><code>profiles.link</code></td>
 <td>string</td>
 <td>false</td>
 <td>A link to the customers social profile</td>
 </tr>
 <tr>
-<td>traits</td>
+<td><code>traits</code></td>
 <td>object</td>
 <td>false</td>
 <td>An object of traits.</td>
@@ -433,67 +412,67 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 </tr>
 </thead><tbody>
 <tr>
-<td>first_name</td>
+<td><code>first_name</code></td>
 <td>string</td>
 <td>true</td>
 <td>First name of the customer</td>
 </tr>
 <tr>
-<td>last_name</td>
+<td><code>last_name</code></td>
 <td>string</td>
 <td>true</td>
 <td>Last name of the customer</td>
 </tr>
 <tr>
-<td>email</td>
+<td><code>email</code></td>
 <td>string</td>
 <td>false</td>
 <td>The email of the customer</td>
 </tr>
 <tr>
-<td>marketing_consent</td>
+<td><code>marketing_consent</code></td>
 <td>boolean</td>
 <td>false</td>
 <td>Whether the customer gives consent to receive marketing material</td>
 </tr>
 <tr>
-<td>birthdate</td>
+<td><code>birthdate</code></td>
 <td>string</td>
 <td>false</td>
 <td>The birthdate of the customer in the format YYYY-MM-DD</td>
 </tr>
 <tr>
-<td>gender</td>
+<td><code>gender</code></td>
 <td>string</td>
 <td>false</td>
 <td>The gender of the customer</td>
 </tr>
 <tr>
-<td>avatar_image</td>
+<td><code>avatar_image</code></td>
 <td>string</td>
 <td>false</td>
 <td>An image representing the customer</td>
 </tr>
 <tr>
-<td>bio</td>
+<td><code>bio</code></td>
 <td>string</td>
 <td>false</td>
 <td>A brief description of the customer</td>
 </tr>
 <tr>
-<td>hometown</td>
+<td><code>hometown</code></td>
 <td>string</td>
 <td>false</td>
 <td>The home town of the customer</td>
 </tr>
 <tr>
-<td>link</td>
+<td><code>link</code></td>
 <td>string</td>
 <td>false</td>
 <td>A link to the original customer</td>
 </tr>
 <tr>
-<td>website</td>
+<td><code>website</code></td>
 <td>string</td>
 <td>false</td>
 <td>The customers website</td>
@@ -503,9 +482,11 @@ Use of the API is for customers using the Customer Profiles Add-On. Speak to you
 <aside class="notice">
 Only use reserved traits for their intended purpose.
 </aside>
-<h1 id='geo-location'>Geo-Location</h1>
+<h2 id='geo-location'>Geo-Location</h2>
 <p>The geo-location endpoint uses the device wi-fi position to automatically create and end visits in a customer profile.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /v1/geolocation</code></p>
+
 <blockquote>
 <p>Example payload:</p>
 </blockquote>
@@ -543,9 +524,7 @@ Only use reserved traits for their intended purpose.
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><code>POST /v1/geolocation</code></p>
-<h3 id='frequency'>Frequency</h3>
+</span></code></pre><h3 id='frequency'>Frequency</h3>
 <p>We recommend sending location events regularly, every minute if possible.</p>
 
 <p>When the customer geo-location is seen for the first time or after a previous exit we create a visit.
@@ -560,25 +539,25 @@ If we don&#39;t receive any location events for a device for a 30 minute period 
 </tr>
 </thead><tbody>
 <tr>
-<td>customer_id</td>
+<td><code>customer_id</code></td>
 <td>string</td>
 <td>true</td>
 <td>A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.</td>
 </tr>
 <tr>
-<td>longitude</td>
+<td><code>longitude</code></td>
 <td>float</td>
 <td>true</td>
 <td>Longitude of the identified device</td>
 </tr>
 <tr>
-<td>latitude</td>
+<td><code>latitude</code></td>
 <td>float</td>
 <td>true</td>
 <td>Latitude of the identified device</td>
 </tr>
 <tr>
-<td>seen_at</td>
+<td><code>seen_at</code></td>
 <td>string</td>
 <td>true</td>
 <td>A datetime when the device was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )</td>
@@ -588,9 +567,11 @@ If we don&#39;t receive any location events for a device for a 30 minute period 
 <aside class="notice">
 Remember - To use this endpoint you will need to be authenticated and provide an existing customer identity using the identify endpoint first.
 </aside>
-<h1 id='geo-venue'>Geo-Venue</h1>
+<h2 id='geo-venue'>Geo-Venue</h2>
 <p>The geo-venue endpoint uses the device venue or zone to automatically create and end visits in a customer profile.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST /v1/geovenue</code></p>
+
 <blockquote>
 <p>Example payload:</p>
 </blockquote>
@@ -632,9 +613,7 @@ Remember - To use this endpoint you will need to be authenticated and provide an
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><code>POST /v1/geovenue</code></p>
-<h3 id='frequency-2'>Frequency</h3>
+</span></code></pre><h3 id='frequency-2'>Frequency</h3>
 <p>We recommend sending venue events regularly, every minute if possible.</p>
 
 <p>When the customer geo-venue is seen for the first time or after a previous exit we create a visit.
@@ -649,31 +628,31 @@ If we don&#39;t receive any venue events for a device for a 30 minute period we 
 </tr>
 </thead><tbody>
 <tr>
-<td>customer_id</td>
+<td><code>customer_id</code></td>
 <td>string</td>
 <td>true</td>
 <td>A customer identifier of customer. If you dont have one you can use the persons device mac or email address instead.</td>
 </tr>
 <tr>
-<td>venue_id</td>
+<td><code>venue_id</code></td>
 <td>string</td>
 <td>true</td>
 <td>A venue identifier.</td>
 </tr>
 <tr>
-<td>name</td>
+<td><code>name</code></td>
 <td>string</td>
 <td>true</td>
 <td>The name of the venue or zone.</td>
 </tr>
 <tr>
-<td>address</td>
+<td><code>address</code></td>
 <td>string</td>
 <td>false</td>
 <td>The address of the venue or zone.</td>
 </tr>
 <tr>
-<td>seen_at</td>
+<td><code>seen_at</code></td>
 <td>string</td>
 <td>true</td>
 <td>A datetime when the device was last seen. In the format of a RFC 3339 datetime ( 2017-11-29T08:09:57Z )</td>
@@ -683,8 +662,66 @@ If we don&#39;t receive any venue events for a device for a 30 minute period we 
 <aside class="notice">
 Remember - To use this endpoint you will need to be authenticated and provide an existing customer identity using the identify endpoint first.
 </aside>
+<h1 id='v2'>v2</h1>
+<p>The following endpoints are included in the <code>v2</code> scheme.</p>
+<h2 id='identities'>Identities</h2>
+<p>The <code>identities</code> endpoint will return a summary of Customer Profiles submitted through the <code>/v1/identify</code> endpoint or created through our <a href="https://www.localmeasurepulse.com">Pulse</a> product.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET /v2/identities</code></p>
+
+<p>This endpoint supports both JSON and Comma-Separated Values (CSV) as output formats, defaulting to JSON. You can specify the format in two ways:</p>
+
+<ol>
+<li>Appending the format to the endpoint e.g., <code>GET /v2/identities.csv</code></li>
+<li>Using the <code>Accept</code> header, set to either <code>application/json</code> or <code>text/csv</code></li>
+</ol>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  <span class="s1">'https://public-api.getlocalmeasure.com/v2/identities?type=wifi'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: YOUR_API_KEY'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joe@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"age_range"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21+"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"device_category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"device_family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iPhone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location_visited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe's Coffee Shop"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_visited_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-03T03:51:47Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_visited_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-03T03:51:47Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_devices"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_connections"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"wifi_use_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">1800</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketing_consent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketing_consented_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-03"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>from</code></td>
+<td>(Inclusive) date e.g., <code>2018-10-02</code> to restrict identities to those seen on or after this date. Defaults to the first of the current month.</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td>(Exclusive) date e.g., <code>2018-10-04</code> to restrict identities to those seen before this date. Defaults to today.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Limits identities to those that have the required <code>type</code>. Can be <code>wifi</code>, <code>pulse</code>, <code>note</code> or <code>all</code>. Can be specified multiple times. <code>all</code> will cause <code>from</code>, <code>to</code>, and all other <code>type</code>s to be ignored. Defaults to <code>wifi</code> &amp; <code>pulse</code>.</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
-<p>The Localmeasure API uses the following error codes:</p>
+<p>Our API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -693,32 +730,44 @@ Remember - To use this endpoint you will need to be authenticated and provide an
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request has fields which have invalid data in them.</td>
+<td><code>400</code></td>
+<td><code>Bad Request</code> – your request has fields which have invalid data in them.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is not correct.</td>
+<td><code>401</code></td>
+<td><code>Unauthorized</code> – your API key is not correct.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified API could not be found.</td>
+<td><code>403</code></td>
+<td><code>Forbidden</code> – your API key does not have access to this endpoint.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a API endpoint with an invalid method.</td>
+<td><code>404</code></td>
+<td><code>Not Found</code> – the specified API could not be found.</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting our API too many times! Slow down!</td>
+<td><code>405</code></td>
+<td><code>Method Not Allowed</code> – you tried to access an endpoint with an invalid method.</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td><code>406</code></td>
+<td><code>Not Acceptable</code> – your <code>Accept</code> header specified a format unsupported by the endpoint. Unless stated otherwise, endpoints only support JSON.</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td><code>422</code></td>
+<td><code>Unprocessable Entity</code> – your request was invalid. This usually means some of the required parameters were missing. Information about the specific errors will be returned in the response.</td>
+</tr>
+<tr>
+<td><code>429</code></td>
+<td><code>Too Many Requests</code> – you&#39;re requesting our API too many times! Slow down!</td>
+</tr>
+<tr>
+<td><code>500</code></td>
+<td><code>Internal Server Error</code> – we had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td><code>503</code></td>
+<td><code>Service Unavailable</code> – we&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 

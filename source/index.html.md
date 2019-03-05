@@ -60,11 +60,7 @@ Include the `access_token` parameter in your HTTP uri with your API key as the v
 
 You can register a new Local Measure API key in our [plugin portal](http://dashboard.getlocalmeasure.com/account/?tab=plugins).
 
-# v1
-
-The following endpoints are included in the `v1` scheme of our API.
-
-## Identify
+# Identify
 
 Identify a customer to Local Measure by calling this endpoint. A customer profile will be created or updated based on the fields provided.
 
@@ -157,7 +153,7 @@ Parameter | Type | Required | Description
 Only use reserved traits for their intended purpose.
 </aside>
 
-## Geo-Location
+# Geo-Location
 
 The geo-location endpoint uses the device wi-fi position to automatically create and end visits in a customer profile.
 
@@ -226,7 +222,7 @@ Parameter | Type | Required | Description
 Remember - To use this endpoint you will need to be authenticated and provide an existing customer identity using the identify endpoint first.
 </aside>
 
-## Geo-Venue
+# Geo-Venue
 
 The geo-venue endpoint uses the device venue or zone to automatically create and end visits in a customer profile.
 
@@ -300,11 +296,8 @@ Parameter | Type | Required | Description
 Remember - To use this endpoint you will need to be authenticated and provide an existing customer identity using the identify endpoint first.
 </aside>
 
-# v2
 
-The following endpoints are included in the `v2` scheme.
-
-## Identities
+# Identities
 
 The `identities` endpoint will return a summary of Customer Profiles submitted through the `/v1/identify` endpoint or created through our [Pulse](https://www.localmeasurepulse.com) product.
 
@@ -353,3 +346,163 @@ Parameter | Description
 `from` | (Inclusive) date e.g., `2018-10-02` to restrict identities to those seen on or after this date. Defaults to the first of the current month.
 `to` | (Exclusive) date e.g., `2018-10-04` to restrict identities to those seen before this date. Defaults to today.
 `type` | Limits identities to those that have the required `type`. Can be `wifi`, `pulse`, `note` or `all`. Can be specified multiple times. `all` will cause `from`, `to`, and all other `type`s to be ignored. Defaults to `wifi` & `pulse`.
+
+# Profiles
+
+The `profiles` endpoint can be used in three ways:
+
+- to retrieve many Customer Profiles
+- to retrieve an individual Customer Profile
+- to retrieve events for an individual Customer Profile
+
+## Many
+
+Retrieve many Customers Profiles that have been submitted through the `/v1/identify` endpoint or created through our [Pulse](https://www.localmeasurepulse.com) product.
+
+### HTTP Request
+
+`GET /v2/profiles`
+
+```shell
+curl -X GET \
+  'https://public-api.getlocalmeasure.com/v2/profiles' \
+  -H 'Authorization: YOUR_API_KEY'
+```
+
+> Example Response
+
+```json
+[
+  {
+    "customer_ids": [
+        "00:14:22:01:23:45"
+    ],
+    "devices": [],
+    "profiles": [
+        {
+            "source": "salesforce",
+            "source_id": "37461828371",
+            "link": "https://salesforce.com/customer/abc123"
+        }
+    ],
+    "first_name": "John",
+    "last_name": "Smith",
+    "emails": [
+        "john.smith@gmail.com"
+    ],
+    "marketing_consent": true,
+    "marketing_consented_at": "2019-03-05T21:19:19.696Z",
+    "avatar_image": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png",
+    "bio": "An all round great guy, enjoys long walks on the beach.",
+    "hometown": "New York, New York",
+    "location": "Sydney, Australia",
+    "link": "https://salesforce.com/customer/abc123",
+    "website": "https://google.com",
+    "custom_traits": {
+        "favourite_food": "Pizza",
+        "loyalty_level": "Elite Plus",
+        "loyalty_number": "AU8759342",
+        "loyalty_status": "Platinum",
+        "scorpio": "Beorn is scorpio"
+    },
+    "updated_at": "2019-03-05T21:19:19.696Z"
+  }
+]
+```
+
+### Parameters
+
+Parameter | Description
+----------|------------
+`skip` | Defaults to `0`; used for paginating results
+`limit` | Defaults to `10`; used for paginating results
+
+## One
+
+Retrieve an individual Customer Profile that has been submitted through the `/v1/identify` endpoint or created through our [Pulse](https://www.localmeasurepulse.com) product.
+
+### HTTP Request
+
+`GET /v2/profiles/<customer_id>`
+
+```shell
+curl -X GET \
+  'https://public-api.getlocalmeasure.com/v2/profiles/00:14:22:01:23:45' \
+  -H 'Authorization: YOUR_API_KEY'
+```
+
+> Example Response
+
+```json
+{
+  "customer_ids": [
+      "00:14:22:01:23:45"
+  ],
+  "devices": [],
+  "profiles": [
+      {
+          "source": "salesforce",
+          "source_id": "37461828371",
+          "link": "https://salesforce.com/customer/abc123"
+      }
+  ],
+  "first_name": "John",
+  "last_name": "Smith",
+  "emails": [
+      "john.smith@gmail.com"
+  ],
+  "marketing_consent": true,
+  "marketing_consented_at": "2019-03-05T21:19:19.696Z",
+  "avatar_image": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png",
+  "bio": "An all round great guy, enjoys long walks on the beach.",
+  "hometown": "New York, New York",
+  "location": "Sydney, Australia",
+  "link": "https://salesforce.com/customer/abc123",
+  "website": "https://google.com",
+  "custom_traits": {
+      "favourite_food": "Pizza",
+      "loyalty_level": "Elite Plus",
+      "loyalty_number": "AU8759342",
+      "loyalty_status": "Platinum",
+      "scorpio": "Beorn is scorpio"
+  },
+  "updated_at": "2019-03-05T21:19:19.696Z"
+}
+```
+
+## Events
+
+This endpoint will return a list of events associated with a Customer Profile. These include visits submitted through the `/v1/geolocation` and `/v2/geovenue` endpoints
+
+### HTTP Request
+
+`GET /v2/profiles/<customer_id>/events`
+
+```shell
+curl -X GET \
+  'https://public-api.getlocalmeasure.com/v2/profiles/00:14:22:01:23:45/events' \
+  -H 'Authorization: YOUR_API_KEY'
+```
+
+> Example Response
+
+```json
+[
+    {
+        "type": "wifi_visit",
+        "place": "Level 1",
+        "start": "2019-03-05T21:45:13Z",
+        "end": "0001-01-01T00:00:00Z",
+        "context": {
+            "on_site": true
+        }
+    }
+]
+```
+
+### Parameters
+
+Parameter | Description
+----------|------------
+`skip` | Defaults to `0`; used for paginating results
+`limit` | Defaults to `10`; used for paginating results

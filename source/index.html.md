@@ -568,6 +568,6 @@ Parameter | Description
 ----------|------------
 `skip` | Defaults to `0`; used for paginating results
 `limit` | Defaults to `10`; used for paginating results
-`from` | (Inclusive) date e.g., `2018-10-02` to restrict responses to those seen on or after this date. Defaults to the first of the current month.
-`to` | (Exclusive) date e.g., `2018-10-04` to restrict responses to those seen before this date. Defaults to today.
+`from` | (Inclusive) date e.g., `2018-10-02` to restrict responses to those seen on or after this date.
+`to` | (Exclusive) date e.g., `2018-10-04` to restrict responses to those seen before this date.
 `rating` | Limits responses to those that match the required `rating` e.g., `1`, `2`, `3`, `4` or `5`. Can be specified multiple times.

@@ -472,7 +472,7 @@ curl -X GET \
 
 ## Events
 
-This endpoint will return a list of events associated with a Customer Profile. These include visits submitted through the `/v1/geolocation` and `/v2/geovenue` endpoints
+This endpoint will return a list of events associated with a Customer Profile. These include visits submitted through the `/v1/geolocation`, `/v2/geovenue` endpoints and our [Pulse](https://www.localmeasurepulse.com) product.
 
 ### HTTP Request
 
@@ -496,6 +496,68 @@ curl -X GET \
         "context": {
             "on_site": true
         }
+    },
+    {
+        "type": "pulse_response",
+        "place": "The Overlook Hotel",
+        "start": "2019-01-15T16:00:42.398Z",
+        "end": "2019-01-15T16:00:42.398Z",
+        "context": {
+            "pulse": "/v2/pulse/5ad8b96d5a1763d7f2474a64",
+            "response": "/v2/pulse/5ad8b96d5a1763d7f2474a64/responses/5c3e03aa11533fef7d482c62"
+        }
+    },
+]
+```
+
+### Parameters
+
+Parameter | Description
+----------|------------
+`skip` | Defaults to `0`; used for paginating results
+`limit` | Defaults to `10`; used for paginating results
+
+# Pulse
+
+The `pulse` endpoints provide access to:
+
+- responses to all your Pulsepoints – `/v2/pulse/responses`
+- responses to a specific Pulsepoint – `/v2/pulse/{pulsepoint_id}/responses`
+
+Both support the same parameters, and return data in the same format, but the examples use the first endpoint.
+
+### HTTP Request
+
+`GET /v2/pulse/responses`
+
+```shell
+curl -X GET \
+  'https://public-api.getlocalmeasure.com/v2/pulse/responses' \
+  -H 'Authorization: YOUR_API_KEY'
+```
+
+> Example Response
+
+```json
+[
+    {
+        "id": "5c3e03aa11533fef7d482c62",
+        "actioned_on": "0001-01-01T00:00:00Z",
+        "actioned": false,
+        "answers": [
+            {
+                "question_text": "How could we make your experience better?",
+                "answer": "Less work and more play."
+            }
+        ],
+        "email": "jack@overlook.hotel",
+        "name": "Jack Torrence",
+        "rating": 3,
+        "room": "237",
+        "ip_address": "",
+        "profile": "/v2/profiles/857c161d6f6adfe499f2864c18e0884a",
+        "pulse": "/v2/pulse/5ad8b96d5a1763d7f2474a64",
+        "timestamp": "2019-01-15T16:00:42.398Z"
     }
 ]
 ```
@@ -506,3 +568,6 @@ Parameter | Description
 ----------|------------
 `skip` | Defaults to `0`; used for paginating results
 `limit` | Defaults to `10`; used for paginating results
+`from` | (Inclusive) date e.g., `2018-10-02` to restrict responses to those seen on or after this date.
+`to` | (Exclusive) date e.g., `2018-10-04` to restrict responses to those seen before this date.
+`rating` | Limits responses to those that match the required `rating` e.g., `1`, `2`, `3`, `4` or `5`. Can be specified multiple times.

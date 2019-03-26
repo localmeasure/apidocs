@@ -305,6 +305,17 @@
               </ul>
           </li>
           <li>
+            <a href="#pulse" class="toc-h1 toc-link" data-title="Pulse">Pulse</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-8" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#parameters-4" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </div>
@@ -881,7 +892,7 @@ Remember - To use this endpoint you will need to be authenticated and provide an
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-05T21:19:19.696Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='events'>Events</h2>
-<p>This endpoint will return a list of events associated with a Customer Profile. These include visits submitted through the <code>/v1/geolocation</code> and <code>/v2/geovenue</code> endpoints</p>
+<p>This endpoint will return a list of events associated with a Customer Profile. These include visits submitted through the <code>/v1/geolocation</code>, <code>/v2/geovenue</code> endpoints and our <a href="https://www.localmeasurepulse.com">Pulse</a> product.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET /v2/profiles/&lt;customer_id&gt;/events</code></p>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
@@ -900,7 +911,17 @@ Remember - To use this endpoint you will need to be authenticated and provide an
         </span><span class="s2">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"on_site"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pulse_response"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Overlook Hotel"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-15T16:00:42.398Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-15T16:00:42.398Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pulse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v2/pulse/5ad8b96d5a1763d7f2474a64"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v2/pulse/5ad8b96d5a1763d7f2474a64/responses/5c3e03aa11533fef7d482c62"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='parameters-3'>Parameters</h3>
 <table><thead>
@@ -916,6 +937,73 @@ Remember - To use this endpoint you will need to be authenticated and provide an
 <tr>
 <td><code>limit</code></td>
 <td>Defaults to <code>10</code>; used for paginating results</td>
+</tr>
+</tbody></table>
+<h1 id='pulse'>Pulse</h1>
+<p>The <code>pulse</code> endpoints provide access to:</p>
+
+<ul>
+<li>responses to all your Pulsepoints – <code>/v2/pulse/responses</code></li>
+<li>responses to a specific Pulsepoint – <code>/v2/pulse/{pulsepoint_id}/responses</code></li>
+</ul>
+
+<p>Both support the same parameters, and return data in the same format, but the examples use the first endpoint.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET /v2/pulse/responses</code></p>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  <span class="s1">'https://public-api.getlocalmeasure.com/v2/pulse/responses'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: YOUR_API_KEY'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3e03aa11533fef7d482c62"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actioned_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actioned"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"question_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How could we make your experience better?"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Less work and more play."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jack@overlook.hotel"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jack Torrence"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v2/profiles/857c161d6f6adfe499f2864c18e0884a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pulse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v2/pulse/5ad8b96d5a1763d7f2474a64"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-15T16:00:42.398Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='parameters-4'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>skip</code></td>
+<td>Defaults to <code>0</code>; used for paginating results</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>Defaults to <code>10</code>; used for paginating results</td>
+</tr>
+<tr>
+<td><code>from</code></td>
+<td>(Inclusive) date e.g., <code>2018-10-02</code> to restrict responses to those seen on or after this date.</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td>(Exclusive) date e.g., <code>2018-10-04</code> to restrict responses to those seen before this date.</td>
+</tr>
+<tr>
+<td><code>rating</code></td>
+<td>Limits responses to those that match the required <code>rating</code> e.g., <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code> or <code>5</code>. Can be specified multiple times.</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>

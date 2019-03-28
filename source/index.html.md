@@ -49,7 +49,7 @@ The Local Measure API uses an API key to authenticate access to the API and map 
 Local Measure expects an API key in all API requests. We support two methods of sending the API key: HTTP Headers or via a url parameter.
 
 ### Header
-Include an `Authorisation` header in your HTTP request with your API key
+Include an `Authorization` header in your HTTP request with your API key
 
 `Authorization: your-api-key`
 

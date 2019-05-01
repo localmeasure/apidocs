@@ -297,22 +297,27 @@ Remember - To use this endpoint you will need to be authenticated and provide an
 </aside>
 
 
-# Identities
+# Export
 
-The `identities` endpoint will return a summary of Customer Profiles submitted through the `/v1/identify` endpoint or created through our [Pulse](https://www.localmeasurepulse.com) product.
+The `export` endpoint provides two discrete endpoints:
 
-### HTTP Request
+* `export/identities` will return a summary of Customer Profiles submitted through the `/v1/identify` endpoint or created through our [Pulse](https://www.localmeasurepulse.com) product
+* `export/pulse` will return [Pulse](https://www.localmeasurepulse.com) responses.
 
-`GET /v2/identities`
-
-This endpoint supports both JSON and Comma-Separated Values (CSV) as output formats, defaulting to JSON. You can specify the format in two ways:
+Both support SON and Comma-Separated Values (CSV) as output formats, defaulting to JSON. You can specify the format in two ways:
 
 1. Appending the format to the endpoint e.g., `GET /v2/identities.csv`
 2. Using the `Accept` header, set to either `application/json` or `text/csv`
 
+## Identities
+
+### HTTP Request
+
+`GET /v2/export/identities`
+
 ```shell
 curl -X GET \
-  'https://public-api.getlocalmeasure.com/v2/identities?type=wifi' \
+  'https://public-api.getlocalmeasure.com/v2/export/identities?type=wifi' \
   -H 'Authorization: YOUR_API_KEY'
 ```
 
@@ -344,8 +349,44 @@ curl -X GET \
 Parameter | Description
 ----------|------------
 `from` | (Inclusive) date e.g., `2018-10-02` to restrict identities to those seen on or after this date. Defaults to the first of the current month.
-`to` | (Exclusive) date e.g., `2018-10-04` to restrict identities to those seen before this date. Defaults to today.
+`to` | (Exclusive) date e.g., `2018-10-04` to restrict identities to those seen before this date. Defaults to tomorrow.
 `type` | Limits identities to those that have the required `type`. Can be `wifi`, `pulse`, `note` or `all`. Can be specified multiple times. `all` will cause `from`, `to`, and all other `type`s to be ignored. Defaults to `wifi` & `pulse`.
+
+## Pulse
+
+### HTTP Request
+
+`GET /v2/export/pulse`
+
+```shell
+curl -X GET \
+  'https://public-api.getlocalmeasure.com/v2/export/pulse?type=wifi' \
+  -H 'Authorization: YOUR_API_KEY'
+```
+
+> Example Response
+
+```json
+[
+    {
+        "place_name": "The Overlook Hotel",
+        "timestamp": "2019-01-15T16:00:42.398Z",
+        "full_name": "Jack Torrence",
+        "email_address": "jack@overlook.hotel",
+        "room_number": "237",
+        "rating": 3,
+        "comment": "Less work and more play."
+    }
+]
+```
+
+### Parameters
+
+Parameter | Description
+----------|------------
+`from` | (Inclusive) date e.g., `2018-10-02` to restrict identities to those seen on or after this date. Defaults to the first of the current month.
+`to` | (Exclusive) date e.g., `2018-10-04` to restrict identities to those seen before this date. Defaults to tomorrow.
+`rating` | Limits responses to those that match the required `rating` e.g., `1`, `2`, `3`, `4` or `5`. Can be specified multiple times.
 
 # Profiles
 
@@ -568,6 +609,6 @@ Parameter | Description
 ----------|------------
 `skip` | Defaults to `0`; used for paginating results
 `limit` | Defaults to `10`; used for paginating results
-`from` | (Inclusive) date e.g., `2018-10-02` to restrict responses to those seen on or after this date.
-`to` | (Exclusive) date e.g., `2018-10-04` to restrict responses to those seen before this date.
+`from` | (Inclusive) date e.g., `2018-10-02T00:00:00Z` to restrict responses to those seen on or after this date.
+`to` | (Exclusive) date e.g., `2018-10-04T23:59:59Z` to restrict responses to those seen before this date.
 `rating` | Limits responses to those that match the required `rating` e.g., `1`, `2`, `3`, `4` or `5`. Can be specified multiple times.

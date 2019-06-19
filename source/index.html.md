@@ -148,6 +148,8 @@ Parameter | Type | Required | Description
 `hometown` | string | false | The home town of the customer
 `link` | string | false | A link to the original customer
 `website` | string | false | The customers website
+`phone` | string | false | The customers phone number
+`room` | string | false | The customers room number
 
 <aside class="notice">
 Only use reserved traits for their intended purpose.
